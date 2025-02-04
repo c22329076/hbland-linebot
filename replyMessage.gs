@@ -81,12 +81,154 @@ function handleUserResponse(userId, userMessage) {
   }
 }
 /*
-function getNormalReplyMessage(userMessage) {
+function getNormalReplyMessage(userId, userMessage) {
   // 可根據需求自定義回應邏輯
-  return [{
+  return [
+    {
     'type': 'text',
-    'text': `您剛剛說了：「${userMessage}」，對吧？`
-  }];
+    'text': `${userId}` + "，您好！\n有任何地政相關的問題歡迎$輸入以下數字取得更多相關資訊，或撥打本所電話03-4917647，將有人員進一步協助您！\n【 1 】－$上班時間\n【 2 】－$聯絡電話\n【 3 】－$地所住址\n【 4 】－$官方網站\n【 5 】－$粉絲專頁\n【 6 】－ 💌其他問題\n快邀請親朋好友一起加入官方LINE，將會不定時收到最新活動消息唷！$",
+    "emojis": [
+          {
+            "index": parseInt(userId.length) + 17,
+            "productId": "5ac21542031a6752fb806d55",
+            "emojiId": "242"
+          },
+          {
+            "index": parseInt(userId.length) + 69,
+            "productId": "670e0cce840a8236ddd4ee4c",
+            "emojiId": "184"
+          },
+          {
+            "index": parseInt(userId.length) + 81,
+            "productId": "5ac21542031a6752fb806d55",
+            "emojiId": "197"
+          },
+          {
+            "index": parseInt(userId.length) + 93,
+            "productId": "5ac1de17040ab15980c9b438",
+            "emojiId": "117"
+          },
+          {
+            "index": parseInt(userId.length) + 105,
+            "productId": "5ac21542031a6752fb806d55",
+            "emojiId": "074"
+          },
+          {
+            "index": parseInt(userId.length) + 117,
+            "productId": "5ac21542031a6752fb806d55",
+            "emojiId": "073"
+          },
+          {
+            "index": parseInt(userId.length) + 170,
+            "productId": "5ac1bfd5040ab15980c9b435",
+            "emojiId": "219"
+          }
+        ]
+    },
+    {
+      'type': 'text',
+      'text': '中壢地政官方帳號提供簡易的關鍵字自動回應，點選下方圖示可進行簡易的地政諮詢~\n若您想詢問其他問題，歡迎至我們的Facebook臉書粉絲專頁留言\n🌏臉書：https://www.facebook.com/Zhongliland/\n或撥打本所電話03-4917647，將由人員為您解答，謝謝您！'
+    },
+    {
+      "type": "flex",
+      "altText": "請選擇業務諮詢類別",
+      "contents": {
+        "type": "carousel",
+        "contents": [
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E7%99%BB%E8%A8%98%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.JPG",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "登記業務諮詢"
+              }
+            }
+          },
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E6%B8%AC%E9%87%8F%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.JPG",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "測量業務諮詢"
+              }
+            }
+          },
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E5%9C%B0%E5%83%B9%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.JPG",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "地價業務諮詢"
+              }
+            }
+          },
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E8%B3%87%E8%A8%8A%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.JPG",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "資訊業務諮詢"
+              }
+            }
+          },
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E5%9C%B0%E7%94%A8%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.JPG",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "地用業務諮詢"
+              }
+            }
+          },
+          {
+            "type": "bubble",
+            "size": "micro",
+            "hero": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/c22329076/hbland-linebot/refs/heads/main/img/%E6%AA%94%E6%A1%88%E6%87%89%E7%94%A8%E5%85%B6%E4%BB%96%E7%B6%9C%E5%90%88%E6%A5%AD%E5%8B%99%E8%AB%AE%E8%A9%A2.jpg",
+              "size": "full",
+              "aspectRatio": "775:1096",
+              "aspectMode": "cover",
+              "action": {
+                "type": "message",
+                "text": "檔案應用其他綜合業務諮詢"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ];
 }
 */
 function readQuestions(sheet) {

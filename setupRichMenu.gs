@@ -88,7 +88,7 @@ function createRichMenuB() {
       },
       {
         'bounds': {'x': 101, 'y': 543, 'width': 1734, 'height': 239},
-        'action': {'type': 'message', 'text': '我要預約申請'}
+        'action': {'type': 'message', 'text': '!表單'}
       },
       {
         'bounds': {'x': 705, 'y': 1196, 'width': 1732, 'height': 241},
